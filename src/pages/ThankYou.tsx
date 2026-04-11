@@ -25,6 +25,11 @@ const ThankYouPage = () => {
               target="_blank"
               rel="noopener noreferrer"
               className="text-primary font-bold underline"
+              onClick={() => {
+                if (typeof window !== 'undefined' && (window as any).kwaiq) {
+                  (window as any).kwaiq.track('Contact');
+                }
+              }}
             >
               clique aqui para falar conosco
             </a>
