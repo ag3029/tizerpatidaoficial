@@ -48,6 +48,10 @@ const CheckoutPage = () => {
     e.preventDefault();
     if (!isValid) return;
 
+    if (typeof window !== 'undefined' && (window as any).kwaiq) {
+      (window as any).kwaiq.track('InitiateCheckout');
+    }
+
     const message = `Olá! Gostaria de comprar o TirzePro 🔥%0A%0A` +
       `📦 *Kit:* ${selectedKit.units} ${selectedKit.units === 1 ? "Unidade" : "Unidades"} (${selectedKit.days} dias)%0A` +
       `💰 *Preço:* ${selectedKit.totalPrice} (12x de ${selectedKit.installment})%0A` +
