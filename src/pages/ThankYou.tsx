@@ -1,9 +1,18 @@
+import { useEffect } from "react";
 import { CheckCircle } from "lucide-react";
 import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
 const ThankYouPage = () => {
+  useEffect(() => {
+    if (typeof window !== 'undefined' && (window as any).kwaiq) {
+      (window as any).kwaiq.page();
+      (window as any).kwaiq.track('addToCart');
+      (window as any).kwaiq.track('completeRegistration');
+    }
+  }, []);
+
   return (
     <div className="min-h-screen bg-background flex flex-col">
       <Header />
