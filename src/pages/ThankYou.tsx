@@ -14,6 +14,13 @@ const ThankYouPage = () => {
       kwaiq.track("Contact");
       console.log("✅ KWAI: Eventos disparados!");
     }
+
+    // Redireciona automaticamente para o WhatsApp após 2 segundos
+    const timer = setTimeout(() => {
+      window.open("https://wa.me/5511977071469", "_blank");
+    }, 2000);
+
+    return () => clearTimeout(timer);
   }, []);
 
   const handleWhatsAppClick = () => {
