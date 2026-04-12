@@ -1,6 +1,7 @@
 import { useState } from "react";
+import { useEffect } from "react";
 import { useSearchParams, useNavigate } from "react-router-dom";
-import { getWhatsAppNumber } from "@/config/whatsapp";
+import { getWhatsAppNumber, fetchWhatsAppNumber } from "@/config/whatsapp";
 import { kits } from "@/components/PricingSection";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -27,6 +28,9 @@ const formatPhone = (value: string) => {
 const CheckoutPage = () => {
   const [searchParams] = useSearchParams();
   const navigate = useNavigate();
+
+  useEffect(() => { fetchWhatsAppNumber(); }, []);
+
   const kitId = searchParams.get("kit") || "5-unidades";
   const selectedKit = kits.find((k) => k.id === kitId) || kits[0];
 
