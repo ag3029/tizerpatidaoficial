@@ -1,9 +1,32 @@
+import { useEffect } from "react";
 import { CheckCircle } from "lucide-react";
 import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
 const ThankYouPage = () => {
+
+  useEffect(() => {
+    const kwaiq = (window as any).kwaiq;
+    if (kwaiq) {
+      kwaiq.track("addToCart");
+      kwaiq.track("completeRegistration");
+      kwaiq.track("Contact");
+      console.log("✅ KWAI: Eventos disparados!");
+    }
+  }, []);
+
+  const handleWhatsAppClick = () => {
+    const kwaiq = (window as any).kwaiq;
+    if (kwaiq) {
+      kwaiq.track("addToCart");
+      kwaiq.track("completeRegistration");
+      kwaiq.track("Contact");
+      console.log("✅ KWAI: Eventos disparados no clique do WhatsApp!");
+    }
+    window.open("https://wa.me/5511977071469", "_blank");
+  };
+
   return (
     <div className="min-h-screen bg-background flex flex-col">
       <Header />
@@ -13,26 +36,21 @@ const ThankYouPage = () => {
             <CheckCircle className="w-20 h-20 text-success" />
           </div>
           <h1 className="text-3xl md:text-4xl font-extrabold">
-            <span className="text-gradient-yellow">Obrigado!</span>
+            <span className="text-gradient-yellow">Obrigado!!</span>
           </h1>
           <p className="text-muted-foreground leading-relaxed">
-            Seu pedido foi recebido com sucesso! Em instantes você será redirecionado para o WhatsApp para finalizar sua compra com nossa equipe.
+            Seu pedido foi recebido com sucesso! Em instantes você será
+            redirecionado para o WhatsApp para finalizar sua compra com nossa
+            equipe.
           </p>
           <p className="text-sm text-muted-foreground">
             Caso não tenha sido redirecionado,{" "}
-            <a
-              href="https://wa.me/5511977071469"
-              target="_blank"
-              rel="noopener noreferrer"
+            <button
               className="text-primary font-bold underline"
-              onClick={() => {
-                if (typeof window !== 'undefined' && (window as any).kwaiq) {
-                  (window as any).kwaiq.track('Contact');
-                }
-              }}
+              onClick={handleWhatsAppClick}
             >
               clique aqui para falar conosco
-            </a>
+            </button>
           </p>
           <Link
             to="/"
