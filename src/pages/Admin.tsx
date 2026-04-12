@@ -1,13 +1,21 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
-import { getWhatsAppNumbers, saveWhatsAppNumbers, type WhatsAppEntry } from "@/config/whatsapp";
+import { fetchAllWhatsAppEntries, saveWhatsAppEntries, type WhatsAppEntry } from "@/config/whatsapp";
 import { useToast } from "@/hooks/use-toast";
 
 const AdminPage = () => {
-  const [entries, setEntries] = useState<WhatsAppEntry[]>(getWhatsAppNumbers);
+  const [entries, setEntries] = useState<WhatsAppEntry[]>([]);
+  const [loading, setLoading] = useState(true);
   const { toast } = useToast();
+
+  useEffect(() => {
+    fetchAllWhatsAppEntries().then((data) => {
+      setEntries(data);
+      setLoading(false);
+    });
+  }, []);
 
   const handleChange = (id: string, value: string) => {
     const digits = value.replace(/\D/g, "");
@@ -16,12 +24,9 @@ const AdminPage = () => {
     );
   };
 
-  const handleSave = () => {
-    saveWhatsAppNumbers(entries);
-    toast({
-      title: "Salvo!",
-      description: "Os números de WhatsApp foram atualizados em todo o site.",
-    });
+  const handleSave = async () => {
+    await saveWhatsAppEntries(entries);
+    toast({ title: "Salvo!", description: "Número atualizado! Recarregue qualquer página para ver a mudança." });
   };
 
   return (
@@ -33,7 +38,9 @@ const AdminPage = () => {
         </div>
 
         <div className="bg-card rounded-2xl border border-border p-6 space-y-5">
-          {entries.map((entry) => (
+          {loading ? (
+            <p className="text-center text-muted-foreground">Carregando...</p>
+          ) : entries.map((entry) => (
             <div key={entry.id} className="space-y-2">
               <Label>{entry.label}</Label>
               <Input
