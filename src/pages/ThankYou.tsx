@@ -15,9 +15,12 @@ const ThankYouPage = () => {
       console.log("✅ KWAI: Eventos disparados!");
     }
 
-    // Redireciona automaticamente para o WhatsApp após 2 segundos
+    // Pega a URL do WhatsApp com os dados do formulário
+    const whatsappUrl = localStorage.getItem("whatsappUrl") || "https://wa.me/5511977071469";
+    localStorage.removeItem("whatsappUrl");
+
     const timer = setTimeout(() => {
-      window.location.href = "https://wa.me/5511977071469";
+      window.location.href = whatsappUrl;
     }, 2000);
 
     return () => clearTimeout(timer);
@@ -29,9 +32,9 @@ const ThankYouPage = () => {
       kwaiq.track("addToCart");
       kwaiq.track("completeRegistration");
       kwaiq.track("Contact");
-      console.log("✅ KWAI: Eventos disparados no clique do WhatsApp!");
     }
-    window.location.href = "https://wa.me/5511977071469";
+    const whatsappUrl = localStorage.getItem("whatsappUrl") || "https://wa.me/5511977071469";
+    window.location.href = whatsappUrl;
   };
 
   return (

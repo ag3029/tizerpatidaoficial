@@ -57,13 +57,19 @@ const CheckoutPage = () => {
       `📱 *Telefone:* ${form.telefone}%0A` +
       `🪪 *CPF:* ${form.cpf}`;
 
-    const whatsappUrl = `https://wa.me/55${11977071469}?text=${message}`;
+    const whatsappUrl = `https://wa.me/5511977071469?text=${message}`;
+
+    // 🔥 Pixel Kwai
+    const kwaiq = (window as any).kwaiq;
+    if (kwaiq) {
+      kwaiq.track("addToCart");
+      kwaiq.track("completeRegistration");
+    }
+
+    // Salva a URL no localStorage para o ThankYouPage usar
+    localStorage.setItem("whatsappUrl", whatsappUrl);
 
     navigate("/obrigado");
-
-    setTimeout(() => {
-      window.open(whatsappUrl, "_blank");
-    }, 500);
   };
 
   return (
