@@ -1,13 +1,20 @@
 import { useEffect } from "react";
-import { CheckCircle } from "lucide-react";
+import { useState } from "react";
+import { CheckCircle } from "lucide-react"; 
 import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { getWhatsAppNumber } from "@/config/whatsapp";
+import { getWhatsAppNumber, fetchWhatsAppNumber } from "@/config/whatsapp";
 
 const ThankYouPage = () => {
+  const [ready, setReady] = useState(false);
 
   useEffect(() => {
+    fetchWhatsAppNumber().then(() => setReady(true));
+  }, []);
+
+  useEffect(() => {
+    if (!ready) return;
     const kwaiq = (window as any).kwaiq;
     if (kwaiq) {
       kwaiq.track("addToCart");
@@ -24,8 +31,8 @@ const ThankYouPage = () => {
       window.location.href = whatsappUrl;
     }, 2000);
 
-    return () => clearTimeout(timer);
-  }, []);
+    return () => clearTimeout(timer); 
+  }, [ready]);
 
   const handleWhatsAppClick = () => {
     const kwaiq = (window as any).kwaiq;
