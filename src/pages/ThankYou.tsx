@@ -3,6 +3,7 @@ import { CheckCircle } from "lucide-react";
 import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { getWhatsAppNumber } from "@/config/whatsapp";
 
 const ThankYouPage = () => {
 
@@ -16,7 +17,7 @@ const ThankYouPage = () => {
     }
 
     // Pega a URL do WhatsApp com os dados do formulário
-    const whatsappUrl = localStorage.getItem("whatsappUrl") || "https://wa.me/5511977071469";
+    const whatsappUrl = localStorage.getItem("whatsappUrl") || `https://wa.me/${getWhatsAppNumber("principal")}`;
     localStorage.removeItem("whatsappUrl");
 
     const timer = setTimeout(() => {
@@ -33,7 +34,7 @@ const ThankYouPage = () => {
       kwaiq.track("completeRegistration");
       kwaiq.track("Contact");
     }
-    const whatsappUrl = localStorage.getItem("whatsappUrl") || "https://wa.me/5511977071469";
+    const whatsappUrl = localStorage.getItem("whatsappUrl") || `https://wa.me/${getWhatsAppNumber("principal")}`;
     window.location.href = whatsappUrl;
   };
 
