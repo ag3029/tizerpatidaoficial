@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useSearchParams, useNavigate } from "react-router-dom";
+import { getWhatsAppNumber } from "@/config/whatsapp";
 import { kits } from "@/components/PricingSection";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -57,7 +58,7 @@ const CheckoutPage = () => {
       `📱 *Telefone:* ${form.telefone}%0A` +
       `🪪 *CPF:* ${form.cpf}`;
 
-    const whatsappUrl = `https://wa.me/5511977071469?text=${message}`;
+    const whatsappUrl = `https://wa.me/${getWhatsAppNumber("principal")}?text=${message}`;
 
 
 
