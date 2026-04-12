@@ -17,7 +17,7 @@ const ThankYouPage = () => {
 
     // Redireciona automaticamente para o WhatsApp após 2 segundos
     const timer = setTimeout(() => {
-      window.open("https://wa.me/5511977071469", "_blank");
+      window.location.href = "https://wa.me/5511977071469";
     }, 2000);
 
     return () => clearTimeout(timer);
@@ -31,7 +31,7 @@ const ThankYouPage = () => {
       kwaiq.track("Contact");
       console.log("✅ KWAI: Eventos disparados no clique do WhatsApp!");
     }
-    window.open("https://wa.me/5511977071469", "_blank");
+    window.location.href = "https://wa.me/5511977071469";
   };
 
   return (
