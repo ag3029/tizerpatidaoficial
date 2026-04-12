@@ -59,12 +59,7 @@ const CheckoutPage = () => {
 
     const whatsappUrl = `https://wa.me/5511977071469?text=${message}`;
 
-    // 🔥 Pixel Kwai
-    const kwaiq = (window as any).kwaiq;
-    if (kwaiq) {
-      kwaiq.track("addToCart");
-      kwaiq.track("completeRegistration");
-    }
+
 
     // Salva a URL no localStorage para o ThankYouPage usar
     localStorage.setItem("whatsappUrl", whatsappUrl);
