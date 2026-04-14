@@ -26,7 +26,7 @@ export const kits: Kit[] = [
     totalOriginal: "R$985,00",
     totalPrice: "R$397,00",
     savings: "R$588,00",
-    image: "https://i.ibb.co/KzfVfXNm/Design-sem-nome-9.png",
+    image: "https://i.ibb.co/LdRdBdd7/Design-sem-nome-12.png",
     recommended: true,
   },
   {
