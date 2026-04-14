@@ -51,7 +51,7 @@ export const kits: Kit[] = [
     totalOriginal: "R$289,00",
     totalPrice: "R$197,00",
     savings: "R$92,00",
-    image: "https://tirzepro-oficial.com/wp-content/uploads/2026/03/Tirze-pro-1-frasco.png",
+    image: "https://i.ibb.co/TQy5Gs7/Design-sem-nome-11.png",
   },
 ];
 
