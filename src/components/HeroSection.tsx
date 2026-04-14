@@ -4,7 +4,7 @@ const HeroSection = () => {
       <div className="container mx-auto px-4 flex flex-col md:flex-row items-center gap-10">
         <div className="flex-1 flex justify-center">
           <img
-            src="https://tirzepro-oficial.com/wp-content/uploads/2026/03/Tirzepro.png"
+            src="https://i.ibb.co/GfJkTGby/Design-sem-nome-15.png"
             alt="TirzePro - Suplemento natural para controle de peso"
             className="w-64 md:w-96 drop-shadow-2xl"
           />
