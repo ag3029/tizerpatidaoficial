@@ -17,9 +17,9 @@ export interface Kit {
 
 export const kits: Kit[] = [
   {
-    id: "5-unidades",
+    id: "4-unidades",
     badge: "Maior Desconto",
-    units: 5,
+    units: 4,
     days: 150,
     installment: "R$39,70",
     perUnit: "R$79,40",
