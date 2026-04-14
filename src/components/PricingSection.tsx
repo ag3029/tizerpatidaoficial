@@ -38,8 +38,9 @@ export const kits: Kit[] = [
     perUnit: "R$99,00",
     totalOriginal: "R$591,00",
     totalPrice: "R$297,00",
+    totalPrice: "R$297,00",
     savings: "R$294,00",
-    image: "https://tirzepro-oficial.com/wp-content/uploads/2026/03/Tirze-pro-3-frascos.png",
+    image: "https://i.ibb.co/pBK3mNjD/Design-sem-nome-10.png",
   },
   {
     id: "1-unidade",
