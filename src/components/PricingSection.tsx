@@ -39,7 +39,7 @@ export const kits: Kit[] = [
     totalOriginal: "R$591,00",
     totalPrice: "R$297,00",
     savings: "R$294,00",
-    image: "https://i.ibb.co/pBK3mNjD/Design-sem-nome-10.png",
+    image: "https://i.ibb.co/z3pf2t6/Design-sem-nome-13.png",
   },
   {
     id: "1-unidade",
